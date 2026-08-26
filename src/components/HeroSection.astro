@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import heroCoupleImg from '../assets/images/hero-couple.png';
+import ringsImg from '../assets/images/rings.png';
+import candidBwImg from '../assets/images/candid-bw.png';
+---
+
+<section id="gallery" class="scroll-mt-24 pt-[160px] md:pt-[190px] pb-16 md:pb-28 px-6 md:px-12 max-w-[1200px] mx-auto relative content-layer">
+  <!-- Center Header Typography -->
+  <div class="text-center mb-12 md:mb-20 relative z-10" data-parallax="-0.04">
+    <!-- Subtle Top Ornament -->
+    <div class="flex justify-center items-center gap-3 mb-4 text-on-surface-variant opacity-70">
+      <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
+      <span class="w-12 h-px bg-on-surface-variant/40"></span>
+      <span class="material-symbols-outlined text-[15px]">favorite</span>
+      <span class="w-12 h-px bg-on-surface-variant/40"></span>
+      <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
+    </div>
+
+    <!-- Main Display Headline -->
+    <h1 class="text-6xl sm:text-7xl md:text-[110px] lg:text-[124px] font-serif font-light italic text-canvas leading-[0.92] tracking-tight mb-4 drop-shadow-2xl">
+      Elena &amp; Julian
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-xs sm:text-sm md:text-base text-on-surface-variant uppercase tracking-[0.25em] md:tracking-[0.35em] font-light">
+      A Celebration of Love and New Beginnings
+    </p>
+
+    <!-- Date & Location Capsule -->
+    <div class="mt-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-card/60 backdrop-blur-md border border-hairline text-xs uppercase tracking-widest text-on-surface-variant">
+      <span>Sabtu, 18 Oktober 2026</span>
+      <span class="w-1 h-1 rounded-full bg-on-surface-variant/60"></span>
+      <span>Villa Bellagio, Como</span>
+    </div>
+  </div>
+
+  <!-- Unified Responsive Staggered Editorial Grid (Single DOM structure) -->
+  <div class="grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 items-center relative mt-8 md:mt-20">
+    <!-- Left Photo Card: Rings & Bouquet -->
+    <div class="order-2 md:order-1 col-span-1 md:col-span-4 md:col-start-1 md:-translate-y-12 relative z-20 group" data-parallax="0.07">
+      <div class="aspect-square md:aspect-[3/4] rounded-lg overflow-hidden bg-surface-card p-1.5 md:p-2 md:transform md:-rotate-3 shadow-[0_16px_48px_rgba(0,0,0,0.7)] transition-all duration-700 ease-out md:group-hover:rotate-0 md:group-hover:scale-105 border border-hairline/60">
+        <Image
+          src={ringsImg}
+          alt="Elena & Julian holding hands showing wedding rings with white roses"
+          class="w-full h-full object-cover rounded filter grayscale-[15%] transition-all duration-700 md:group-hover:grayscale-0"
+          loading="lazy"
+        />
+      </div>
+      <div class="mt-2 md:mt-3 text-center">
+        <span class="text-[10px] md:text-[11px] uppercase tracking-widest text-on-surface-variant/70 font-mono">01 / The Vow &amp; Rings</span>
+      </div>
+    </div>
+
+    <!-- Center Photo Card: Grand Villa Portrait (Hero Centerpiece) -->
+    <div class="order-1 md:order-2 col-span-2 md:col-span-8 md:col-start-3 md:row-start-1 relative z-10 group" data-parallax="0.02">
+      <div class="aspect-[4/3] md:aspect-[3/2] rounded-lg overflow-hidden bg-surface-card p-1.5 md:p-2 shadow-[0_28px_80px_rgba(0,0,0,0.85)] border border-hairline/60 transition-all duration-700 ease-out md:group-hover:shadow-[0_32px_90px_rgba(0,0,0,0.95)]">
+        <Image
+          src={heroCoupleImg}
+          alt="Elena and Julian posing together in an elegant sun-drenched Italian villa"
+          class="w-full h-full object-cover rounded transition-transform duration-1000 ease-out md:group-hover:scale-[1.03]"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <!-- Right Photo Card: Candid Joy B&W -->
+    <div class="order-3 md:order-3 col-span-1 md:col-span-4 md:col-start-9 md:row-start-1 md:translate-y-24 relative z-30 group" data-parallax="0.09">
+      <div class="aspect-square rounded-lg overflow-hidden bg-surface-card p-1.5 md:p-2 md:transform md:rotate-2 shadow-[0_16px_48px_rgba(0,0,0,0.7)] transition-all duration-700 ease-out md:group-hover:rotate-0 md:group-hover:scale-105 border border-hairline/60">
+        <Image
+          src={candidBwImg}
+          alt="Joyful candid moment of Elena and Julian laughing under fairy lights"
+          class="w-full h-full object-cover rounded filter contrast-105 transition-all duration-700"
+          loading="eager"
+        />
+      </div>
+      <div class="mt-2 md:mt-3 text-center">
+        <span class="text-[10px] md:text-[11px] uppercase tracking-widest text-on-surface-variant/70 font-mono">02 / Pure Joy</span>
+      </div>
+    </div>
+  </div>
+</section>

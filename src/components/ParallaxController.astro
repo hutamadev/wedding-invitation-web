@@ -1,0 +1,75 @@
+---
+// Client-side lightweight Parallax and Smooth Scroll Controller
+// Provides GPU-accelerated 60/120fps parallax depth and silky smooth navigation scrolling.
+---
+
+<script>
+  function initParallaxAndSmoothScroll(): void {
+    // Respect user preference for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const parallaxElements = document.querySelectorAll<HTMLElement>('[data-parallax]');
+    if (parallaxElements.length === 0) {
+      return;
+    }
+
+    let isTicking = false;
+
+    function onScroll(): void {
+      const windowHeight = window.innerHeight;
+      const isMobile = window.innerWidth < 768;
+      // Soften parallax speed on smaller mobile viewports for optimal performance
+      const speedMultiplier = isMobile ? 0.6 : 1.0;
+
+      parallaxElements.forEach((el) => {
+        const rawSpeed = parseFloat(el.getAttribute('data-parallax') || '0.1');
+        const speed = rawSpeed * speedMultiplier;
+        const rect = el.getBoundingClientRect();
+
+        // Only compute if element is near the viewport
+        if (rect.bottom >= -150 && rect.top <= windowHeight + 150) {
+          const elementCenter = rect.top + rect.height / 2;
+          const viewportCenter = windowHeight / 2;
+          const offset = (elementCenter - viewportCenter) * speed;
+
+          const rotate = el.getAttribute('data-parallax-rotate');
+          if (rotate) {
+            el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) rotate(${rotate})`;
+          } else {
+            el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+          }
+        }
+      });
+
+      isTicking = false;
+    }
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(onScroll);
+          isTicking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    // Initial positioning calculation
+    onScroll();
+
+    // Recalculate on window resize
+    window.addEventListener('resize', () => {
+      onScroll();
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParallaxAndSmoothScroll);
+  } else {
+    initParallaxAndSmoothScroll();
+  }
+</script>

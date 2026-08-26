@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AtmosphericOrbs from '@/components/AtmosphericOrbs.astro';
+import FloralDecorations from '@/components/FloralDecorations.astro';
+import Navigation from '@/components/Navigation.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import OurStorySection from '@/components/OurStorySection.astro';
+import GuestbookSection from '@/components/GuestbookSection.astro';
+import Footer from '@/components/Footer.astro';
+import ParallaxController from '@/components/ParallaxController.astro';
+---
+
+<Layout
+  title="Elena & Julian — Undangan Pernikahan (Editorial Dark Mode)"
+  description="A Celebration of Love and New Beginnings. Undangan pernikahan Elena & Julian di Villa Bellagio."
+  image="/images/hero-couple.png"
+>
+  <!-- Background Animated Atmosphere -->
+  <AtmosphericOrbs />
+
+  <!-- Fixed Glassmorphic Navigation -->
+  <Navigation />
+
+  <!-- Main Content Flow -->
+  <main class="relative min-h-screen">
+    <!-- Ambient Line-Art Florals -->
+    <FloralDecorations />
+
+    <!-- Hero Section with Overlapping Photos -->
+    <HeroSection />
+
+    <!-- Story & Event Schedule Section -->
+    <OurStorySection />
+
+    <!-- Interactive Guestbook & RSVP Section -->
+    <GuestbookSection />
+  </main>
+
+  <!-- Editorial Footer -->
+  <Footer />
+
+  <!-- Parallax Scroll Controller -->
+  <ParallaxController />
+</Layout>

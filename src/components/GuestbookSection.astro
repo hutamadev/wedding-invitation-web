@@ -1,0 +1,463 @@
+---
+// Interactive Guestbook & RSVP Component with live submission, sessionStorage demo persistence, and pagination
+---
+
+<section id="guestbook" class="scroll-mt-24 py-20 md:py-32 px-6 md:px-12 max-w-4xl mx-auto relative content-layer">
+  <!-- Section Title & Copywriting -->
+  <div class="text-center mb-10 md:mb-12">
+    <div class="inline-flex items-center justify-center bg-surface-variant/50 backdrop-blur-sm px-5 py-1 rounded-full mb-4 border border-hairline/80">
+      <span class="text-[11px] uppercase tracking-[0.25em] text-canvas/90 font-medium">Buku Tamu &amp; Kehadiran</span>
+    </div>
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif italic text-canvas mb-4 tracking-tight">
+      Buku Tamu &amp; Doa Restu
+    </h2>
+    <p class="text-sm sm:text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+      Untaian doa dan konfirmasi kehadiran Anda merupakan kehormatan serta kebahagiaan terbesar bagi lembaran baru pernikahan kami.
+    </p>
+  </div>
+
+  <!-- Relevant Decorative Divider (Intertwined Wedding Rings / Diamond Motif) -->
+  <div class="flex justify-center items-center gap-4 mb-12 opacity-40" data-parallax="-0.08" aria-hidden="true">
+    <div class="h-px w-24 sm:w-36 bg-gradient-to-r from-transparent via-canvas to-canvas"></div>
+    <div class="flex items-center gap-1.5 text-canvas">
+      <svg class="w-5 h-5 text-canvas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <circle cx="9" cy="12" r="5"></circle>
+        <circle cx="15" cy="12" r="5"></circle>
+      </svg>
+    </div>
+    <div class="h-px w-24 sm:w-36 bg-gradient-to-l from-transparent via-canvas to-canvas"></div>
+  </div>
+
+  <!-- RSVP & Guestbook Form Card -->
+  <div id="rsvp" class="scroll-mt-28 bg-surface-card/85 backdrop-blur-xl border border-hairline rounded-2xl p-6 sm:p-8 md:p-10 mb-16 relative overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.65)]">
+    <!-- Corner Decorative Line Art -->
+    <div class="absolute top-0 right-0 p-4 opacity-15 pointer-events-none" aria-hidden="true">
+      <svg fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 1 H47 V48" stroke="currentColor" stroke-width="1" class="text-canvas"></path>
+        <circle cx="47" cy="1" r="2" fill="currentColor" class="text-canvas"></circle>
+      </svg>
+    </div>
+
+    <!-- Background Subtle Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-surface-card via-surface-container to-surface-variant opacity-30 pointer-events-none"></div>
+
+    <form id="guestbook-form" class="relative z-10 space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Input: Nama -->
+        <div class="space-y-2">
+          <label for="guest-name" class="block text-xs uppercase tracking-widest text-canvas font-medium">
+            Nama Lengkap <span class="text-rose-400">*</span>
+          </label>
+          <input
+            id="guest-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder="Contoh: Muhammad Farhan"
+            class="w-full bg-surface-container-low/60 border border-hairline rounded-lg px-4 py-3 text-sm text-canvas placeholder:text-on-surface-variant/50 focus:border-canvas focus:ring-1 focus:ring-canvas focus:outline-none transition-all duration-200"
+          />
+        </div>
+
+        <!-- Input: Hubungan -->
+        <div class="space-y-2">
+          <label for="guest-relation" class="block text-xs uppercase tracking-widest text-canvas font-medium">
+            Hubungan / Kerabat (Opsional)
+          </label>
+          <input
+            id="guest-relation"
+            name="relation"
+            type="text"
+            placeholder="Contoh: Sahabat, Keluarga, Rekan Kerja"
+            class="w-full bg-surface-container-low/60 border border-hairline rounded-lg px-4 py-3 text-sm text-canvas placeholder:text-on-surface-variant/50 focus:border-canvas focus:ring-1 focus:ring-canvas focus:outline-none transition-all duration-200"
+          />
+        </div>
+      </div>
+
+      <!-- Input: RSVP Konfirmasi Kehadiran -->
+      <fieldset class="space-y-2 border-0 p-0 m-0">
+        <legend class="block text-xs uppercase tracking-widest text-canvas font-medium mb-2">
+          Konfirmasi Kehadiran
+        </legend>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <label for="rsvp-attending" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-hairline bg-surface-container-low/40 cursor-pointer hover:border-canvas/50 transition-colors text-xs uppercase tracking-wider text-canvas select-none has-[:checked]:border-canvas has-[:checked]:bg-surface-variant">
+            <input id="rsvp-attending" type="radio" name="attendance" value="attending" checked class="accent-canvas" />
+            <span>Hadir</span>
+          </label>
+          <label for="rsvp-tentative" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-hairline bg-surface-container-low/40 cursor-pointer hover:border-canvas/50 transition-colors text-xs uppercase tracking-wider text-canvas select-none has-[:checked]:border-canvas has-[:checked]:bg-surface-variant">
+            <input id="rsvp-tentative" type="radio" name="attendance" value="tentative" class="accent-canvas" />
+            <span>Masih Ragu</span>
+          </label>
+          <label for="rsvp-not-attending" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-hairline bg-surface-container-low/40 cursor-pointer hover:border-canvas/50 transition-colors text-xs uppercase tracking-wider text-canvas select-none has-[:checked]:border-canvas has-[:checked]:bg-surface-variant">
+            <input id="rsvp-not-attending" type="radio" name="attendance" value="not_attending" class="accent-canvas" />
+            <span>Berhalangan</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Textarea: Pesan & Doa -->
+      <div class="space-y-2">
+        <label for="guest-message" class="block text-xs uppercase tracking-widest text-canvas font-medium">
+          Untaian Pesan &amp; Doa Restu <span class="text-rose-400">*</span>
+        </label>
+        <textarea
+          id="guest-message"
+          name="message"
+          rows="4"
+          required
+          placeholder="Tuliskan ucapan selamat, doa kebaikan, dan harapan Anda untuk kedua mempelai..."
+          class="w-full bg-surface-container-low/60 border border-hairline rounded-lg px-4 py-3 text-sm text-canvas placeholder:text-on-surface-variant/50 focus:border-canvas focus:ring-1 focus:ring-canvas focus:outline-none transition-all duration-200 resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Submit Action & Feedback State -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+        <span id="form-feedback" class="text-xs text-emerald-400 opacity-0 transition-opacity duration-300 font-medium">
+          ✨ Terima kasih! Pesan dan doa restu Anda telah terkirim.
+        </span>
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full sm:w-auto bg-canvas text-ink px-8 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-surface-variant hover:text-canvas transition-all duration-300 shadow-md active:scale-95 flex items-center justify-center gap-2"
+        >
+          <span class="material-symbols-outlined text-base">send</span>
+          <span>Kirimkan Doa Restu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Messages Feed Header -->
+  <div id="messages-feed-header" class="flex items-center justify-between mb-8 border-b border-hairline pb-4 scroll-mt-28">
+    <div class="flex items-center gap-3">
+      <h3 class="text-2xl sm:text-3xl font-serif italic text-canvas tracking-tight">Untaian Doa &amp; Harapan</h3>
+    </div>
+    <div class="flex items-center gap-2">
+      <span id="messages-count" class="text-xs uppercase tracking-widest text-on-surface-variant font-mono bg-surface-variant/50 px-3.5 py-1 rounded-full border border-hairline">
+        4 Pesan
+      </span>
+    </div>
+  </div>
+
+  <!-- Messages Grid Container -->
+  <div id="messages-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[220px]">
+    <!-- Dynamic message cards hydrated via client script -->
+  </div>
+
+  <!-- Pagination Controls Container -->
+  <div id="pagination-wrapper" class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-hairline/60 pt-6">
+    <div id="pagination-info" class="text-xs text-on-surface-variant font-light order-2 sm:order-1">
+      <!-- Dynamic pagination details -->
+    </div>
+    <nav id="pagination-controls" aria-label="Navigasi Halaman Buku Tamu" class="flex items-center gap-1.5 order-1 sm:order-2">
+      <!-- Dynamic pagination buttons -->
+    </nav>
+  </div>
+</section>
+
+<script>
+  import type { GuestbookMessage, AttendanceStatus } from '@/types/guestbook';
+
+  const SESSION_STORAGE_KEY = 'wedding_guestbook_demo_session_v1';
+  const ITEMS_PER_PAGE = 4;
+
+  const defaultMessages: GuestbookMessage[] = [
+    {
+      id: 'template-1',
+      name: 'Sarah & Tom',
+      relation: 'Teman Kuliah',
+      message: 'Selamat ya Elena & Julian! Semoga senantiasa dipenuhi keberkahan, sakinah, dan cinta yang abadi hingga akhir hayat. Can\'t wait to celebrate with you both! ✨',
+      attendance: 'attending',
+      createdAt: new Date(Date.now() - 15 * 60000).toISOString(),
+    },
+    {
+      id: 'template-2',
+      name: 'Keluarga Besar Wijaya',
+      relation: 'Keluarga',
+      message: 'Barakallahu lakuma wa baraka \'alaikuma wa jama\'a bainakuma fii khair. Semoga menjadi keluarga sakinah mawaddah warahmah, dilimpahi putra-putri yang sholeh dan sholehah.',
+      attendance: 'attending',
+      createdAt: new Date(Date.now() - 2 * 3600000).toISOString(),
+    },
+    {
+      id: 'template-3',
+      name: 'Amanda Pramita & Keluarga',
+      relation: 'Rekan Kerja',
+      message: 'Happy wedding Elena & Julian! Wishing you a lifetime filled with immense joy, unconditional love, and great adventures together.',
+      attendance: 'attending',
+      createdAt: new Date(Date.now() - 5 * 3600000).toISOString(),
+    },
+    {
+      id: 'template-4',
+      name: 'Budi Susanto',
+      relation: 'Sahabat Masa Kecil',
+      message: 'Lancar terus sampai hari H bro Julian & Elena! Turut bahagia melihat perjalanan kalian berdua sampai ke pelaminan. Cheers to the new chapter! 🥂',
+      attendance: 'attending',
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+    },
+  ];
+
+  function getSessionMessages(): GuestbookMessage[] {
+    try {
+      const stored = sessionStorage.getItem(SESSION_STORAGE_KEY);
+      if (!stored) {
+        return [];
+      }
+      const parsed: unknown = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        return parsed as GuestbookMessage[];
+      }
+    } catch {
+      // Gracefully return empty if sessionStorage fails or format is invalid
+    }
+    return [];
+  }
+
+  function saveSessionMessage(newMessage: GuestbookMessage): void {
+    try {
+      const current = getSessionMessages();
+      const updated = [newMessage, ...current];
+      sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(updated));
+    } catch {
+      // Ignore quota errors in private browsing/storage limits
+    }
+  }
+
+  function getAllMessages(): GuestbookMessage[] {
+    const sessionMessages = getSessionMessages();
+    return [...sessionMessages, ...defaultMessages];
+  }
+
+  function escapeHtml(str: string): string {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function formatDateTime(isoString?: string): string {
+    if (!isoString) return '';
+    try {
+      const date = new Date(isoString);
+      if (isNaN(date.getTime())) return '';
+      return new Intl.DateTimeFormat('id-ID', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).format(date).replace(/\./g, ':');
+    } catch {
+      return '';
+    }
+  }
+
+  function renderMessageCard(msg: GuestbookMessage, isNew: boolean = false): string {
+    const attendanceBadge = msg.attendance === 'attending'
+      ? '<span class="text-[10px] uppercase tracking-wider text-emerald-400 bg-emerald-950/50 border border-emerald-800/50 px-2.5 py-0.5 rounded-full">Hadir</span>'
+      : msg.attendance === 'tentative'
+      ? '<span class="text-[10px] uppercase tracking-wider text-amber-300 bg-amber-950/50 border border-amber-800/50 px-2.5 py-0.5 rounded-full">Ragu</span>'
+      : msg.attendance === 'not_attending'
+      ? '<span class="text-[10px] uppercase tracking-wider text-rose-300 bg-rose-950/50 border border-rose-800/50 px-2.5 py-0.5 rounded-full">Berhalangan</span>'
+      : '';
+
+    const safeName = escapeHtml(msg.name);
+    const safeRelation = msg.relation ? escapeHtml(msg.relation) : '';
+    const safeMessage = escapeHtml(msg.message);
+    const formattedDate = formatDateTime(msg.createdAt) || msg.timeAgo || '';
+    const newBadge = isNew
+      ? '<span class="text-[9px] uppercase tracking-wider text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full font-mono">Baru</span>'
+      : '';
+
+    return `
+      <div class="guest-card bg-surface-card/75 backdrop-blur-sm border ${isNew ? 'border-amber-400/40 shadow-[0_0_20px_rgba(251,191,36,0.1)]' : 'border-hairline'} rounded-xl p-6 flex flex-col justify-between shadow-md transition-all duration-300">
+        <div>
+          <div class="flex justify-between items-start gap-3 mb-3">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h4 class="text-lg font-serif italic text-canvas tracking-tight break-words">${safeName}</h4>
+                ${newBadge}
+              </div>
+              ${safeRelation ? `<span class="text-[11px] uppercase tracking-widest text-on-surface-variant font-mono block mt-0.5">${safeRelation}</span>` : ''}
+            </div>
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1.5 sm:gap-2 shrink-0 self-start">
+              ${attendanceBadge}
+              <time class="text-[11px] text-on-surface-variant/80 font-mono whitespace-nowrap">${formattedDate}</time>
+            </div>
+          </div>
+          <p class="text-sm text-on-surface-variant font-light leading-relaxed whitespace-pre-line">${safeMessage}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function initGuestbook(): void {
+    const container = document.getElementById('messages-container');
+    const countEl = document.getElementById('messages-count');
+    const form = document.getElementById('guestbook-form') as HTMLFormElement | null;
+    const feedback = document.getElementById('form-feedback');
+    const paginationWrapper = document.getElementById('pagination-wrapper');
+    const paginationInfo = document.getElementById('pagination-info');
+    const paginationControls = document.getElementById('pagination-controls');
+    const feedHeader = document.getElementById('messages-feed-header');
+
+    if (!container || !countEl || !form || !paginationControls || !paginationInfo || !paginationWrapper) {
+      return;
+    }
+
+    let currentPage = 1;
+    let newlyAddedId: string | null = null;
+
+    function renderFeed(shouldScrollToHeader: boolean = false): void {
+      if (!container || !countEl || !paginationControls || !paginationInfo || !paginationWrapper) {
+        return;
+      }
+
+      const allMessages = getAllMessages();
+      const totalMessages = allMessages.length;
+      const totalPages = Math.max(1, Math.ceil(totalMessages / ITEMS_PER_PAGE));
+
+      if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+      if (currentPage < 1) {
+        currentPage = 1;
+      }
+
+      countEl.textContent = `${totalMessages} Pesan`;
+
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalMessages);
+      const visibleMessages = allMessages.slice(startIndex, endIndex);
+
+      container.innerHTML = visibleMessages
+        .map((msg) => renderMessageCard(msg, msg.id === newlyAddedId))
+        .join('');
+
+      // Render Pagination Info
+      paginationInfo.textContent = `Menampilkan ${startIndex + 1}–${endIndex} dari ${totalMessages} doa (Halaman ${currentPage} dari ${totalPages})`;
+
+      // Render Pagination Controls
+      let controlsHtml = '';
+
+      // Prev Button
+      const isFirstPage = currentPage === 1;
+      controlsHtml += `
+        <button
+          type="button"
+          data-page="${currentPage - 1}"
+          ${isFirstPage ? 'disabled aria-disabled="true"' : ''}
+          class="inline-flex items-center justify-center p-2 rounded-lg border border-hairline text-xs uppercase tracking-wider text-canvas ${isFirstPage ? 'opacity-30 cursor-not-allowed' : 'hover:bg-surface-variant hover:border-canvas/40 cursor-pointer active:scale-95'} transition-all"
+          aria-label="Halaman Sebelumnya"
+        >
+          <span class="material-symbols-outlined text-sm">chevron_left</span>
+        </button>
+      `;
+
+      // Page Numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const isActive = i === currentPage;
+        controlsHtml += `
+          <button
+            type="button"
+            data-page="${i}"
+            aria-current="${isActive ? 'page' : 'false'}"
+            class="min-w-[34px] h-[34px] flex items-center justify-center rounded-lg text-xs font-mono font-medium transition-all ${
+              isActive
+                ? 'bg-canvas text-ink font-semibold shadow-sm scale-105'
+                : 'border border-hairline text-on-surface-variant hover:text-canvas hover:border-canvas/40 hover:bg-surface-variant/60 cursor-pointer active:scale-95'
+            }"
+            aria-label="Halaman ${i}"
+          >
+            ${i}
+          </button>
+        `;
+      }
+
+      // Next Button
+      const isLastPage = currentPage === totalPages;
+      controlsHtml += `
+        <button
+          type="button"
+          data-page="${currentPage + 1}"
+          ${isLastPage ? 'disabled aria-disabled="true"' : ''}
+          class="inline-flex items-center justify-center p-2 rounded-lg border border-hairline text-xs uppercase tracking-wider text-canvas ${isLastPage ? 'opacity-30 cursor-not-allowed' : 'hover:bg-surface-variant hover:border-canvas/40 cursor-pointer active:scale-95'} transition-all"
+          aria-label="Halaman Berikutnya"
+        >
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+      `;
+
+      paginationControls.innerHTML = controlsHtml;
+
+      // Attach click listeners to pagination buttons
+      const buttons = paginationControls.querySelectorAll<HTMLButtonElement>('button[data-page]');
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          const targetPage = parseInt(btn.getAttribute('data-page') || '1', 10);
+          if (!isNaN(targetPage) && targetPage !== currentPage && targetPage >= 1 && targetPage <= totalPages) {
+            currentPage = targetPage;
+            renderFeed(true);
+          }
+        });
+      });
+
+      if (shouldScrollToHeader && feedHeader) {
+        feedHeader.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Initial render
+    renderFeed();
+
+    // Form Submission Handling
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = (formData.get('name') as string || '').trim();
+      const relation = (formData.get('relation') as string || '').trim();
+      const message = (formData.get('message') as string || '').trim();
+      const attendance = (formData.get('attendance') as AttendanceStatus) || 'attending';
+
+      if (!name || !message) {
+        return;
+      }
+
+      const newId = `session-${Date.now()}`;
+      const newMessage: GuestbookMessage = {
+        id: newId,
+        name,
+        relation: relation || undefined,
+        message,
+        attendance,
+        createdAt: new Date().toISOString(),
+      };
+
+      saveSessionMessage(newMessage);
+      form.reset();
+
+      // Reset to first page & highlight new message
+      newlyAddedId = newId;
+      currentPage = 1;
+      renderFeed(true);
+
+      // Toast feedback animation
+      if (feedback) {
+        feedback.classList.remove('opacity-0');
+        feedback.classList.add('opacity-100');
+        setTimeout(() => {
+          feedback.classList.remove('opacity-100');
+          feedback.classList.add('opacity-0');
+        }, 4000);
+      }
+    });
+  }
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGuestbook);
+  } else {
+    initGuestbook();
+  }
+</script>
+

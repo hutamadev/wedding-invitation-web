@@ -1,0 +1,85 @@
+---
+// Magazine-style editorial footer with geometric pattern, proportional grid, and balanced copywriting
+---
+
+<footer class="bg-surface-card/60 backdrop-blur-md w-full py-20 md:py-28 border-t border-hairline relative content-layer mt-24">
+  <!-- Subtle SVG Dot Pattern Background -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden" aria-hidden="true">
+    <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="footer-grid-pattern" width="80" height="80" patternUnits="userSpaceOnUse">
+          <circle cx="40" cy="40" r="1.5" fill="white"></circle>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#footer-grid-pattern)"></rect>
+    </svg>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-16">
+      <!-- Brand & Summary (Takes 6 cols on desktop) -->
+      <div class="md:col-span-6 flex flex-col items-start space-y-4">
+        <div class="text-3xl sm:text-4xl md:text-5xl font-serif italic text-canvas tracking-tight">
+          Elena &amp; Julian
+        </div>
+        <p class="text-sm md:text-base text-on-surface-variant max-w-md font-light leading-relaxed">
+          Merupakan sebuah kehormatan dan kebahagiaan yang tak terhingga bagi kami atas kehadiran serta doa restu Bapak/Ibu/Saudara/i sekalian di hari istimewa kami.
+        </p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-variant/40 border border-hairline text-[11px] uppercase tracking-widest text-on-surface-variant font-mono">
+          <span>#ElenaJulianForever</span>
+          <span class="w-1 h-1 rounded-full bg-on-surface-variant/40"></span>
+          <span>18.10.2026</span>
+        </div>
+      </div>
+
+      <!-- Quick Navigation (Takes 3 cols on desktop) -->
+      <div class="md:col-span-3 flex flex-col gap-3">
+        <h5 class="text-xs font-semibold uppercase tracking-[0.2em] text-canvas mb-1">
+          Navigasi
+        </h5>
+        <a href="#our-story" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Kisah Kami
+        </a>
+        <a href="#gallery" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Galeri Foto
+        </a>
+        <a href="#guestbook" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Buku Tamu
+        </a>
+        <a href="#rsvp" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Konfirmasi Kehadiran
+        </a>
+      </div>
+
+      <!-- Wedding Info & Links (Takes 3 cols on desktop) -->
+      <div class="md:col-span-3 flex flex-col gap-3">
+        <h5 class="text-xs font-semibold uppercase tracking-[0.2em] text-canvas mb-1">
+          Informasi Acara
+        </h5>
+        <a href="#our-story" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Jadwal Akad &amp; Resepsi
+        </a>
+        <a href="#our-story" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Lokasi: Villa Bellagio
+        </a>
+        <a href="#guestbook" class="text-sm text-on-surface-variant hover:text-canvas transition-colors font-light">
+          Kirim Doa Restu
+        </a>
+        <span class="text-xs text-on-surface-variant/60 font-mono mt-1">
+          Como &amp; Bandung, Indonesia
+        </span>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="border-t border-hairline pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-on-surface-variant flex items-center gap-1.5 font-light">
+        <span>&copy; 2026 Elena &amp; Julian. Dirancang dengan penuh cinta</span>
+        <span class="material-symbols-outlined text-[13px] text-rose-400">favorite</span>
+      </div>
+      <div class="text-[11px] text-on-surface-variant/60 font-mono uppercase tracking-wider">
+        Animated Editorial Dark Mode
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elena &amp; Julian - Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300..800;1,300..800&amp;family=Hanken+Grotesk:wght@300..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#ffdad6",
+                "tertiary-fixed": "#e3e2e2",
+                "on-secondary-container": "#69645c",
+                "secondary": "#635e56",
+                "primary-fixed-dim": "#cdc5c3",
+                "on-primary-container": "#928c8a",
+                "on-secondary-fixed": "#1f1b15",
+                "primary-fixed": "#e9e1df",
+                "body": "#4e4e4e",
+                "primary-container": "#292524",
+                "tertiary": "#101111",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#eae1d7",
+                "tertiary-container": "#252626",
+                "outline-variant": "#d1c4c1",
+                "on-background": "#1d1b1a",
+                "primary": "#141010",
+                "on-primary-fixed-variant": "#4b4644",
+                "inverse-on-surface": "#f6efed",
+                "on-surface-variant": "#a39d9b",
+                "hairline-strong": "#4e4543",
+                "on-primary": "#ffffff",
+                "on-primary-fixed": "#1e1b1a",
+                "secondary-fixed-dim": "#cdc5bc",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-surface": "#f5f5f5",
+                "gradient-lavender": "#4a3b69",
+                "on-secondary-fixed-variant": "#4b463f",
+                "on-tertiary-fixed-variant": "#464747",
+                "canvas": "#f5f5f5",
+                "surface-container-low": "#1d1b1a",
+                "canvas-soft": "#fafafa",
+                "on-tertiary": "#ffffff",
+                "gradient-mint": "#2c5246",
+                "secondary-container": "#eae1d7",
+                "hairline": "#33302e",
+                "gradient-peach": "#6b4530",
+                "on-secondary": "#ffffff",
+                "gradient-rose": "#633c46",
+                "inverse-surface": "#f5f5f5",
+                "error": "#ba1a1a",
+                "surface-bright": "#33302e",
+                "surface-container": "#292524",
+                "gradient-sky": "#2d455e",
+                "surface-tint": "#635d5c",
+                "surface-container-lowest": "#0c0a09",
+                "on-error": "#ffffff",
+                "background": "#0c0a09",
+                "on-tertiary-container": "#8d8d8d",
+                "surface-container-highest": "#4e4543",
+                "surface-card": "#1d1b1a",
+                "outline": "#7f7572",
+                "surface-variant": "#33302e",
+                "surface": "#141010",
+                "ink": "#0c0a09",
+                "tertiary-fixed-dim": "#c7c6c6",
+                "surface-container-high": "#33302e",
+                "surface-dim": "#1d1b1a",
+                "inverse-primary": "#cdc5c3"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xxs": "4px",
+                "sm": "12px",
+                "xs": "8px",
+                "md": "16px",
+                "xxl": "48px",
+                "container-max": "1200px",
+                "section-mobile": "64px",
+                "section-desktop": "96px",
+                "lg": "24px",
+                "xl": "32px",
+                "base": "4px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "EB Garamond"
+                ],
+                "body-strong": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg": [
+                        "EB Garamond"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-xl": [
+                        "EB Garamond"
+                ],
+                "display-mega": [
+                        "EB Garamond"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "label-caps": [
+                        "Hanken Grotesk"
+                ],
+                "button": [
+                        "Hanken Grotesk"
+                ],
+                "display-mega-mobile": [
+                        "EB Garamond"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-strong": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "36px",
+                        {
+                                "lineHeight": "1.17",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "300"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "1.08",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "300"
+                        }
+                ],
+                "display-mega": [
+                        "80px",
+                        {
+                                "lineHeight": "1.05",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "300"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "button": [
+                        "15px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-mega-mobile": [
+                        "56px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "300"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .atmospheric-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+        .guest-card {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .guest-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        .floral-deco {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 5;
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            @keyframes float-gentle {
+                0%, 100% { transform: translateY(0) rotate(var(--tw-rotate, 0deg)); }
+                50% { transform: translateY(-10px) rotate(var(--tw-rotate, 0deg)); }
+            }
+            @keyframes rotate-infinite {
+                from { transform: rotate(var(--tw-rotate, 0deg)); }
+                to { transform: rotate(calc(var(--tw-rotate, 0deg) + 360deg)); }
+            }
+            @keyframes fade-in {
+                from { opacity: 0; }
+                to { opacity: var(--target-opacity, 0.1); }
+            }
+
+            .animate-float {
+                animation: float-gentle 12s ease-in-out infinite;
+            }
+            
+            .atmospheric-orb:nth-child(1) { animation: float-gentle 12s ease-in-out infinite; }
+            .atmospheric-orb:nth-child(2) { animation: float-gentle 15s ease-in-out infinite -5s; }
+            .atmospheric-orb:nth-child(3) { animation: float-gentle 18s ease-in-out infinite -10s; }
+
+            .floral-deco, .deco-shape {
+                --target-opacity: 0.1;
+                opacity: 0;
+                animation: fade-in 2s ease-out forwards;
+            }
+            .floral-deco.opacity-20 {
+                --target-opacity: 0.2;
+            }
+            .deco-shape.opacity-10 {
+                --target-opacity: 0.1;
+            }
+
+            .anim-rotate-slow {
+                animation: fade-in 2s ease-out forwards, rotate-infinite 60s linear infinite;
+            }
+            .anim-float-slow {
+                animation: fade-in 2s ease-out forwards, float-gentle 10s ease-in-out infinite;
+            }
+        }
+    </style>
+</head>
+<body class="bg-ink text-canvas font-body-lg overflow-x-hidden selection:bg-surface-variant selection:text-canvas relative">
+<!-- Atmospheric Orbs -->
+<div class="atmospheric-orb bg-gradient-mint w-[600px] h-[600px] top-[-100px] left-[-200px]"></div>
+<div class="atmospheric-orb bg-gradient-peach w-[800px] h-[800px] top-[40%] right-[-300px]"></div>
+<div class="atmospheric-orb bg-gradient-lavender w-[500px] h-[500px] bottom-[-100px] left-[10%]"></div>
+<!-- Decorative Floral Elements -->
+<svg class="floral-deco anim-rotate-slow top-20 left-10 w-64 h-64 text-canvas" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 0 Q60 40 100 50 Q60 60 50 100 Q40 60 0 50 Q40 40 50 0" stroke="currentColor" stroke-width="0.5"></path>
+<circle cx="50" cy="50" fill="currentColor" r="2"></circle>
+</svg>
+<svg class="floral-deco anim-float-slow top-[60%] right-0 w-96 h-96 text-canvas rotate-45" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 0 C70 30 90 50 100 50 C90 50 70 70 50 100 C30 70 10 50 0 50 C10 50 30 30 50 0" stroke="currentColor" stroke-width="0.5"></path>
+</svg>
+<svg class="floral-deco anim-rotate-slow bottom-40 left-20 w-48 h-48 text-canvas -rotate-12" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 10 Q65 40 90 50 Q65 60 50 90 Q35 60 10 50 Q35 40 50 10" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M50 25 L50 75 M25 50 L75 50" stroke="currentColor" stroke-width="0.25"></path>
+</svg>
+<!-- Navigation (TopNavBar) -->
+<nav class="fixed top-0 w-full z-50 bg-ink/80 backdrop-blur-md bg-transparent flat no shadows flex justify-between items-center px-xxl py-md max-w-container-max mx-auto content-layer border-b border-hairline/20">
+<div class="font-headline-md text-headline-md text-canvas italic">Elena &amp; Julian</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors duration-300" href="#our-story">Our Story</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors duration-300" href="#gallery">Gallery</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-canvas border-b border-canvas/40 pb-1" href="#guestbook">Guestbook</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors duration-300" href="#rsvp">RSVP</a>
+</div>
+<a class="hidden md:block bg-surface-variant text-canvas px-lg py-sm rounded-full font-button text-button hover:bg-canvas hover:text-ink transition-colors border border-hairline" href="#rsvp">RSVP</a>
+<button class="md:hidden text-canvas">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<main class="content-layer">
+<!-- Hero Section -->
+<section class="pt-[200px] pb-section-mobile md:pb-section-desktop px-lg max-w-container-max mx-auto relative">
+<div class="text-center mb-xxl relative z-10">
+<div class="flex justify-center items-center gap-sm mb-md text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[16px]">temp_preferences_custom</span>
+<span class="w-12 h-px bg-on-surface-variant"></span>
+<span class="material-symbols-outlined text-[16px]">temp_preferences_custom</span>
+</div>
+<h1 class="text-[80px] md:text-[120px] font-display-mega-mobile md:font-display-mega text-canvas leading-[0.9] mb-md italic font-[300] drop-shadow-lg">Elena &amp; Julian</h1>
+<p class="font-body-lg text-on-surface-variant tracking-widest uppercase tracking-[0.3em]">A Celebration of Love and New Beginnings</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-sm md:gap-lg items-center relative mt-section-desktop">
+<!-- Detail Rings (Left, overlaps main) -->
+<div class="md:col-span-4 md:col-start-1 md:-translate-y-16 relative z-20 hidden md:block group">
+<div class="aspect-[3/4] rounded-sm overflow-hidden bg-surface-card p-xs transform -rotate-3 shadow-[0_16px_48px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:rotate-0 group-hover:scale-105 border border-hairline/30">
+<img class="w-full h-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0" data-alt="Close-up shot of rings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIDmv4-3Cc4WC2oyyp9_lZXl-d-LnLQfvjn-T-4gqsJndx4LAnzHA83K1bVSTrllyPUHy3yxmV6i5ILrk3I0FX78eOBssI5uCgJDdHhfjSMw1lnYOyUIO900M0TCebczbnaHhZRcerVbufidMLzJ3R3ex6ubfx4kyVn_0OdhwD4m_s0QFviTeiy2PJZDESFv6i7pu0iah9VOZAAP8mNQegIdnHSr9SO377lekNQ7-1BPqaZAFiO0g_"/>
+</div>
+</div>
+<!-- Main Couple Shot (Center) -->
+<div class="md:col-span-8 md:col-start-3 md:row-start-1 relative z-10 group">
+<div class="aspect-[3/2] rounded-sm overflow-hidden bg-surface-card p-xs shadow-[0_24px_64px_rgba(0,0,0,0.8)] border border-hairline/30">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Main couple portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAunlrf0AGRJp-ett1Fa9Hdy7w6lXM7D92uib1jVFDFFkdeEqhnNelw73JYnuO8L3fTuE6Mar5vrLzvSsh2f0B0NItIg9w6-BtoXC706dTEDuQ2co42iS26Uj--rATqFtWA2EKuOJia8XqJrlpWBgQor97SXZukG__LCr2-PehIkObcOfHsZCzvwgFxDeaxKJpyLfSMONVjF0IhurKwg6vHqGGEhRnevxcFIIPio0xzVFL0so0Djl7"/>
+</div>
+</div>
+<!-- B&W Candid (Right, overlaps main) -->
+<div class="md:col-span-4 md:col-start-9 md:row-start-1 md:translate-y-32 relative z-30 hidden md:block group">
+<div class="aspect-square rounded-sm overflow-hidden bg-surface-card p-xs transform rotate-2 shadow-[0_16px_48px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:rotate-0 group-hover:scale-105 border border-hairline/30">
+<img class="w-full h-full object-cover" data-alt="B&amp;W Candid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkfEL_5e-bL-NWe13bVybxMUSKs3S_kyZTtcaN8LAPueGAq_rotFKjMX81yjkpOi93eEprU8g4Rap-E8JVRuxlNCDz4kpFhDRqo8oghhnWHl_i6QeYcoJMMNJc2FGp236PxmmvdPaOb4sCX1AQGLnran112JzvvSSbXzoNeXeuF5YeJfOrQpKeV6OrVn0w22vum7kyQDcsG2ycGeXRLk8YKo1RLtPuQmt0OTfl4Wl0_ogGpQoYfRth"/>
+</div>
+</div>
+<!-- Mobile stack images -->
+<div class="md:hidden flex flex-col gap-md">
+<div class="aspect-[4/5] rounded-sm overflow-hidden shadow-2xl border border-hairline/30 p-1 bg-surface-card">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAunlrf0AGRJp-ett1Fa9Hdy7w6lXM7D92uib1jVFDFFkdeEqhnNelw73JYnuO8L3fTuE6Mar5vrLzvSsh2f0B0NItIg9w6-BtoXC706dTEDuQ2co42iS26Uj--rATqFtWA2EKuOJia8XqJrlpWBgQor97SXZukG__LCr2-PehIkObcOfHsZCzvwgFxDeaxKJpyLfSMONVjF0IhurKwg6vHqGGEhRnevxcFIIPio0xzVFL0so0Djl7"/>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="aspect-square rounded-sm overflow-hidden shadow-xl border border-hairline/30 p-1 bg-surface-card">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIDmv4-3Cc4WC2oyyp9_lZXl-d-LnLQfvjn-T-4gqsJndx4LAnzHA83K1bVSTrllyPUHy3yxmV6i5ILrk3I0FX78eOBssI5uCgJDdHhfjSMw1lnYOyUIO900M0TCebczbnaHhZRcerVbufidMLzJ3R3ex6ubfx4kyVn_0OdhwD4m_s0QFviTeiy2PJZDESFv6i7pu0iah9VOZAAP8mNQegIdnHSr9SO377lekNQ7-1BPqaZAFiO0g_"/>
+</div>
+<div class="aspect-square rounded-sm overflow-hidden shadow-xl border border-hairline/30 p-1 bg-surface-card">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkfEL_5e-bL-NWe13bVybxMUSKs3S_kyZTtcaN8LAPueGAq_rotFKjMX81yjkpOi93eEprU8g4Rap-E8JVRuxlNCDz4kpFhDRqo8oghhnWHl_i6QeYcoJMMNJc2FGp236PxmmvdPaOb4sCX1AQGLnran112JzvvSSbXzoNeXeuF5YeJfOrQpKeV6OrVn0w22vum7kyQDcsG2ycGeXRLk8YKo1RLtPuQmt0OTfl4Wl0_ogGpQoYfRth"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Happy Couple Section -->
+<section class="py-section-mobile md:py-section-desktop px-lg max-w-3xl mx-auto text-center mt-section-desktop relative" id="our-story"><div class="flex justify-center mb-md opacity-30"><svg class="w-12 h-12 text-canvas anim-rotate-slow" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 L55 45 L100 50 L55 55 L50 100 L45 55 L0 50 L45 45 Z" fill="currentColor"></path></svg></div>
+<div class="inline-flex items-center justify-center bg-surface-variant/50 backdrop-blur-sm px-md py-xxs rounded-full mb-lg border border-hairline">
+<span class="font-label-caps text-label-caps text-canvas tracking-widest uppercase">Kisah Kami</span>
+</div>
+<h2 class="font-headline-xl text-canvas mb-md italic">Elena &amp; Julian</h2>
+<div class="mb-lg italic font-headline-md text-on-surface-variant/80">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."</div>
+<p class="font-body-lg text-on-surface-variant leading-relaxed mb-md">
+    Sebuah kisah tentang takdir dan mimpi yang terajut bersama. Berawal dari pertemuan sederhana yang tak disengaja di sudut toko buku, hingga detik ini, perjalanan kami dipenuhi dengan cinta, tawa, dan dukungan yang tak terhingga.
+</p>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+    Dengan penuh rasa syukur dan kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami, merayakan awal dari lembaran baru kehidupan kami berdua.
+</p>
+<svg class="floral-deco anim-rotate-slow bottom-0 right-[-100px] w-64 h-64 text-canvas opacity-20 rotate-12" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 90 Q40 80 50 50 Q60 20 90 10 M50 50 Q20 40 10 10 M50 50 Q80 60 90 90" stroke="currentColor" stroke-width="0.5"></path></svg></section>
+<!-- Guestbook Section -->
+<section class="py-section-mobile md:py-section-desktop px-lg max-w-4xl mx-auto mt-section-desktop relative z-10" id="guestbook"><div class="deco-shape anim-float-slow absolute top-0 left-[-200px] w-[500px] h-[500px] opacity-10 pointer-events-none z-0"><svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 0 C120 40 160 60 200 100 C160 140 120 160 100 200 C80 160 40 140 0 100 C40 60 80 40 100 0" fill="none" stroke="white" stroke-width="0.5"></path></svg></div>
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-canvas mb-sm italic">Buku Tamu</h2>
+<p class="font-body-md text-on-surface-variant">Tinggalkan pesan dan doa restu untuk kami.</p>
+</div><div class="flex justify-center items-center gap-md mb-xl opacity-20"><div class="h-px w-32 bg-canvas"></div><span class="material-symbols-outlined text-[12px] anim-rotate-slow">circle</span><div class="h-px w-32 bg-canvas"></div></div>
+<!-- Input Form -->
+<div class="bg-surface-card/80 backdrop-blur-md border border-hairline rounded-xl p-lg md:p-xl mb-xxl relative overflow-hidden shadow-2xl"><div class="absolute top-0 right-0 p-4 opacity-20 pointer-events-none anim-float-slow"><svg fill="none" height="40" viewbox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg"><path d="M0 1 H39 V40" stroke="white" stroke-width="1"></path></svg></div>
+<div class="absolute inset-0 bg-gradient-to-br from-surface-card to-surface-variant opacity-30 pointer-events-none"></div>
+<form class="relative z-10 space-y-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="block font-label-caps text-label-caps text-canvas uppercase tracking-widest" for="nama">Nama</label>
+<input class="w-full bg-surface-container-low/50 border border-hairline rounded-md px-md py-sm font-body-md text-canvas placeholder:text-on-surface-variant focus:border-canvas focus:ring-0 focus:outline-none transition-colors" id="nama" placeholder="Nama Anda" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="block font-label-caps text-label-caps text-canvas uppercase tracking-widest" for="hubungan">Hubungan (Opsional)</label>
+<input class="w-full bg-surface-container-low/50 border border-hairline rounded-md px-md py-sm font-body-md text-canvas placeholder:text-on-surface-variant focus:border-canvas focus:ring-0 focus:outline-none transition-colors" id="hubungan" placeholder="Keluarga, Teman..." type="text"/>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="block font-label-caps text-label-caps text-canvas uppercase tracking-widest" for="pesan">Pesan &amp; Doa</label>
+<textarea class="w-full bg-surface-container-low/50 border border-hairline rounded-md px-md py-sm font-body-md text-canvas placeholder:text-on-surface-variant focus:border-canvas focus:ring-0 focus:outline-none transition-colors resize-none" id="pesan" placeholder="Tulis doa dan harapan..." rows="4"></textarea>
+</div>
+<div class="flex justify-end">
+<button class="bg-canvas text-ink px-xl py-sm rounded-full font-button text-button hover:bg-surface-variant hover:text-canvas transition-colors shadow-sm border border-transparent hover:border-hairline" type="button">Kirim Pesan</button>
+</div>
+</form>
+</div>
+<!-- Feed Pesan -->
+<div>
+<div class="flex items-center justify-between mb-lg border-b border-hairline pb-sm">
+<h3 class="font-headline-md text-canvas italic">Pesan &amp; Doa</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">42 Messages</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Message Card 1 -->
+<div class="guest-card bg-surface-card/60 backdrop-blur-sm border border-hairline rounded-lg p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-headline-md text-canvas mb-xxs">Sarah &amp; Tom</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Teman Kuliah</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Just now</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Selamat ya Elena &amp; Julian! Bahagia selalu dan dilancarkan sampai hari H. Can't wait to celebrate with you both!</p>
+</div>
+<!-- Message Card 2 -->
+<div class="guest-card bg-surface-card/60 backdrop-blur-sm border border-hairline rounded-lg p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-headline-md text-canvas mb-xxs">Keluarga Wijaya</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Keluarga</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">2 hours ago</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Semoga menjadi keluarga yang sakinah mawaddah warahmah. Doa terbaik untuk kalian berdua.</p>
+</div>
+<!-- Message Card 3 -->
+<div class="guest-card bg-surface-card/60 backdrop-blur-sm border border-hairline rounded-lg p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-headline-md text-canvas mb-xxs">Amanda</h4>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Rekan Kerja</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">5 hours ago</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Wishing you a lifetime of love and happiness. You two are perfect together!</p>
+</div>
+<!-- Message Card 4 -->
+<div class="guest-card bg-surface-card/60 backdrop-blur-sm border border-hairline rounded-lg p-lg">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-headline-md text-canvas mb-xxs">Budi Susanto</h4>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">1 day ago</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Lancar terus persiapannya bro! Cheers to the new chapter.</p>
+</div>
+</div>
+<div class="text-center mt-xl">
+<button class="font-label-caps text-label-caps text-canvas uppercase tracking-widest border-b border-canvas pb-1 hover:text-on-surface-variant hover:border-on-surface-variant transition-colors">Load More Messages</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-card/50 backdrop-blur-sm w-full py-section-desktop border-t border-hairline flex flex-col items-center px-lg content-layer mt-section-desktop"><div class="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden"><svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern height="100" id="footer-pattern" patternunits="userSpaceOnUse" width="100"><circle cx="50" cy="50" fill="white" r="1"></circle></pattern></defs><rect fill="url(#footer-pattern)" height="100%" width="100%"></rect></svg></div>
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-xl">
+<div class="md:col-span-2 flex flex-col items-start">
+<div class="font-headline-xl text-canvas italic mb-sm">Elena &amp; Julian</div>
+<p class="font-body-md text-on-surface-variant max-w-sm">We can't wait to share our special day with you. Please reach out if you have any questions.</p>
+</div>
+<div class="flex flex-col gap-md">
+<h5 class="font-label-caps text-canvas uppercase tracking-widest">Details</h5>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#our-story">Our Story</a>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#gallery">Gallery</a>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#guestbook">Guestbook</a>
+</div>
+<div class="flex flex-col gap-md">
+<h5 class="font-label-caps text-canvas uppercase tracking-widest">Information</h5>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#">Registry</a>
+<a class="font-body-md text-on-surface-variant hover:text-canvas transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="w-full max-w-container-max mx-auto border-t border-hairline mt-xl pt-lg text-left">
+<div class="font-body-md text-on-surface-variant flex items-center gap-xs">© 2024 Elena &amp; Julian. Handcrafted with love <span class="material-symbols-outlined text-[14px]">favorite</span></div>
+</div>
+</footer>
+</body></html>

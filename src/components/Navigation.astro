@@ -1,0 +1,316 @@
+---
+// Navigation bar component with glassmorphism, responsive mobile drawer, and animated scrollspy active underline
+---
+
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <div class="bg-ink/85 backdrop-blur-md border-b border-hairline/40 shadow-sm">
+    <nav class="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-12 py-4 content-layer">
+      <!-- Monogram / Brand Logo -->
+      <a
+        href="#gallery"
+        class="font-serif italic text-2xl md:text-3xl text-canvas tracking-tight hover:opacity-90 transition-opacity"
+      >
+        Elena &amp; Julian
+      </a>
+
+      <!-- Desktop Navigation Links with Animated Underlines -->
+      <div id="desktop-nav-links" class="hidden md:flex items-center gap-8">
+        <a
+          href="#gallery"
+          data-nav-target="gallery"
+          class="desktop-nav-link relative py-1 text-xs uppercase tracking-[0.2em] transition-colors duration-300 text-canvas font-medium"
+        >
+          <span>Galeri</span>
+          <span class="nav-underline absolute -bottom-1 left-0 w-full h-[1.5px] bg-canvas scale-x-100 origin-center transition-transform duration-300 ease-out"></span>
+        </a>
+
+        <a
+          href="#our-story"
+          data-nav-target="our-story"
+          class="desktop-nav-link relative py-1 text-xs uppercase tracking-[0.2em] transition-colors duration-300 text-on-surface-variant hover:text-canvas"
+        >
+          <span>Kisah Kami</span>
+          <span class="nav-underline absolute -bottom-1 left-0 w-full h-[1.5px] bg-canvas scale-x-0 origin-center transition-transform duration-300 ease-out"></span>
+        </a>
+
+        <a
+          href="#guestbook"
+          data-nav-target="guestbook"
+          class="desktop-nav-link relative py-1 text-xs uppercase tracking-[0.2em] transition-colors duration-300 text-on-surface-variant hover:text-canvas"
+        >
+          <span>Buku Tamu</span>
+          <span class="nav-underline absolute -bottom-1 left-0 w-full h-[1.5px] bg-canvas scale-x-0 origin-center transition-transform duration-300 ease-out"></span>
+        </a>
+
+        <a
+          href="#rsvp"
+          data-nav-target="rsvp"
+          class="desktop-nav-link relative py-1 text-xs uppercase tracking-[0.2em] transition-colors duration-300 text-on-surface-variant hover:text-canvas"
+        >
+          <span>RSVP</span>
+          <span class="nav-underline absolute -bottom-1 left-0 w-full h-[1.5px] bg-canvas scale-x-0 origin-center transition-transform duration-300 ease-out"></span>
+        </a>
+      </div>
+
+      <!-- Desktop CTA Button -->
+      <div class="hidden md:block">
+        <a
+          href="#rsvp"
+          class="inline-block bg-surface-variant/80 text-canvas px-6 py-2 rounded-full text-xs font-medium uppercase tracking-wider hover:bg-canvas hover:text-ink transition-all duration-300 border border-hairline shadow-sm"
+        >
+          Konfirmasi Kehadiran
+        </a>
+      </div>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-canvas p-2 focus:outline-none focus:ring-1 focus:ring-canvas/30 rounded-lg"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Collapsible Menu Drawer -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-surface-card/95 backdrop-blur-xl border-b border-hairline px-6 py-6 transition-all duration-300 shadow-2xl"
+  >
+    <div class="flex flex-col gap-4">
+      <a
+        href="#gallery"
+        data-nav-target="gallery"
+        class="mobile-nav-link text-sm uppercase tracking-widest text-canvas font-medium transition-colors py-2 flex items-center justify-between border-b border-hairline/30"
+      >
+        <span>Galeri</span>
+        <span class="mobile-dot w-1.5 h-1.5 rounded-full bg-canvas opacity-100 transition-opacity"></span>
+      </a>
+
+      <a
+        href="#our-story"
+        data-nav-target="our-story"
+        class="mobile-nav-link text-sm uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors py-2 flex items-center justify-between border-b border-hairline/30"
+      >
+        <span>Kisah Kami</span>
+        <span class="mobile-dot w-1.5 h-1.5 rounded-full bg-canvas opacity-0 transition-opacity"></span>
+      </a>
+
+      <a
+        href="#guestbook"
+        data-nav-target="guestbook"
+        class="mobile-nav-link text-sm uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors py-2 flex items-center justify-between border-b border-hairline/30"
+      >
+        <span>Buku Tamu</span>
+        <span class="mobile-dot w-1.5 h-1.5 rounded-full bg-canvas opacity-0 transition-opacity"></span>
+      </a>
+
+      <a
+        href="#rsvp"
+        data-nav-target="rsvp"
+        class="mobile-nav-link text-sm uppercase tracking-widest text-on-surface-variant hover:text-canvas transition-colors py-2 flex items-center justify-between border-b border-hairline/30"
+      >
+        <span>RSVP Kehadiran</span>
+        <span class="mobile-dot w-1.5 h-1.5 rounded-full bg-canvas opacity-0 transition-opacity"></span>
+      </a>
+
+      <div class="pt-3">
+        <a
+          href="#rsvp"
+          class="mobile-nav-link block text-center bg-canvas text-ink py-3 rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-surface-variant hover:text-canvas transition-colors shadow-md"
+        >
+          Konfirmasi Kehadiran
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  interface NavigationController {
+    init(): void;
+  }
+
+  const navigationController: NavigationController = {
+    init(): void {
+      const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.desktop-nav-link');
+      const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      const sectionIds = ['gallery', 'our-story', 'guestbook', 'rsvp'];
+      let currentActiveId = 'gallery';
+      let isManualScrollLocked = false;
+      let manualScrollTimer: number | null = null;
+
+      function setActiveNav(targetId: string): void {
+        if (!targetId || targetId === currentActiveId) {
+          return;
+        }
+        currentActiveId = targetId;
+
+        // Update desktop links
+        desktopLinks.forEach((link) => {
+          const match = link.getAttribute('data-nav-target') === targetId;
+          const underline = link.querySelector<HTMLElement>('.nav-underline');
+
+          if (match) {
+            link.classList.remove('text-on-surface-variant');
+            link.classList.add('text-canvas', 'font-medium');
+            if (underline) {
+              underline.classList.remove('scale-x-0');
+              underline.classList.add('scale-x-100');
+            }
+          } else {
+            link.classList.remove('text-canvas', 'font-medium');
+            link.classList.add('text-on-surface-variant');
+            if (underline) {
+              underline.classList.remove('scale-x-100');
+              underline.classList.add('scale-x-0');
+            }
+          }
+        });
+
+        // Update mobile links
+        mobileLinks.forEach((link) => {
+          const match = link.getAttribute('data-nav-target') === targetId;
+          const dot = link.querySelector<HTMLElement>('.mobile-dot');
+
+          if (match) {
+            link.classList.remove('text-on-surface-variant');
+            link.classList.add('text-canvas', 'font-medium');
+            if (dot) {
+              dot.classList.remove('opacity-0');
+              dot.classList.add('opacity-100');
+            }
+          } else {
+            link.classList.remove('text-canvas', 'font-medium');
+            link.classList.add('text-on-surface-variant');
+            if (dot) {
+              dot.classList.remove('opacity-100');
+              dot.classList.add('opacity-0');
+            }
+          }
+        });
+      }
+
+      // Handle Click Events on navigation items
+      const allNavLinks = [...desktopLinks, ...mobileLinks];
+      allNavLinks.forEach((link) => {
+        link.addEventListener('click', (event: MouseEvent) => {
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) {
+            return;
+          }
+
+          const targetId = href.substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (!targetSection) {
+            return;
+          }
+
+          // Lock scrollspy temporarily while smooth scrolling
+          isManualScrollLocked = true;
+          if (manualScrollTimer !== null) {
+            window.clearTimeout(manualScrollTimer);
+          }
+          setActiveNav(targetId);
+
+          manualScrollTimer = window.setTimeout(() => {
+            isManualScrollLocked = false;
+          }, 800);
+
+          // Close mobile menu on click
+          if (mobileMenu && menuBtn && menuIcon && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuIcon.textContent = 'menu';
+          }
+        });
+      });
+
+      // Mobile Menu Button Toggle
+      if (menuBtn && mobileMenu && menuIcon) {
+        menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+          mobileMenu.classList.toggle('hidden');
+          menuIcon.textContent = isExpanded ? 'menu' : 'close';
+        });
+      }
+
+      // ScrollSpy implementation with Section Positions
+      function handleScrollSpy(): void {
+        if (isManualScrollLocked) {
+          return;
+        }
+
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        // Edge case: Top of page
+        if (scrollY < 180) {
+          setActiveNav('gallery');
+          return;
+        }
+
+        // Edge case: Bottom of page
+        if (scrollY + windowHeight >= documentHeight - 60) {
+          const lastSectionId = sectionIds[sectionIds.length - 1];
+          if (lastSectionId) {
+            setActiveNav(lastSectionId);
+          }
+          return;
+        }
+
+        // Check section offsets
+        const headerOffset = 140;
+        let detectedId: string = currentActiveId;
+
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+
+          const rect = el.getBoundingClientRect();
+          const top = rect.top;
+          const bottom = rect.bottom;
+
+          if (top <= headerOffset && bottom > headerOffset) {
+            detectedId = id;
+            break;
+          }
+        }
+
+        if (detectedId) {
+          setActiveNav(detectedId);
+        }
+      }
+
+      // Throttled Scroll Listener
+      let isTicking = false;
+      window.addEventListener('scroll', () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(() => {
+            handleScrollSpy();
+            isTicking = false;
+          });
+          isTicking = true;
+        }
+      }, { passive: true });
+
+      // Initial check
+      handleScrollSpy();
+    },
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => navigationController.init());
+  } else {
+    navigationController.init();
+  }
+</script>
